@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cyber Bullying Detection</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <h1>Cyber Bullying Detection</h1>
+    <label for="inputType">Select Input Type:</label>
+    <select id="inputType">
+        <option value="text">Text</option>
+        <option value="image">Image</option>
+        <option value="audio">Voice</option>
+    </select>
+    
+    <div id="textInput" class="inputSection">
+        <textarea id="textMessage" placeholder="Enter message here"></textarea>
+    </div>
+    
+    <div id="imageInput" class="inputSection" style="display:none;">
+        <input type="file" id="imageFile" accept="image/*">
+    </div>
+    
+    <div id="audioInput" class="inputSection" style="display:none;">
+        <input type="file" id="audioFile" accept="audio/*">
+    </div>
+    
+    <button onclick="detectCyberbullying()">Detect</button>
+    <div id="result"></div>
+    <script src="static/script.js"></script>
+</body>
+</html>

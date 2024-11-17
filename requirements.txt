@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+scikit-learn
+p
+pandas
+numpy
+python-multipart
+pytesseract
+SpeechRecognition
+pyaudio

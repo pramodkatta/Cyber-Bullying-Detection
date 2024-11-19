@@ -10,6 +10,7 @@ app = FastAPI()
 # Serve the static files (CSS, JS)
 app.mount("/static", StaticFiles(directory="frontend/static"), name="static")
 
+
 # Serve the index.html file for the root route
 @app.get("/")
 def serve_frontend():
@@ -28,6 +29,7 @@ async def predict_text_endpoint(input: TextInput):
     print(f"Prediction result: {prediction}")  # Log the prediction
     return {"prediction": prediction}
 
+
 @app.post("/predict/image")
 async def predict_image_endpoint(file: UploadFile = File(...)):
     # Save the uploaded image temporarily
@@ -45,3 +47,5 @@ async def predict_audio_endpoint(file: UploadFile = File(...)):
     # Run prediction
     prediction = predict_audio("temp_audio.wav")
     return {"prediction": prediction}
+
+

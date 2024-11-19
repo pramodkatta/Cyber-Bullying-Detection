@@ -1,24 +1,101 @@
+
+/* General Styling */
 body {
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: rgba(54, 6, 244, 0.715);
+    background-size: cover;
+    color: white;
+}
+
+/* Title Box Styling */
+.title-box {
     text-align: center;
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.7);
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    border: 2px solid #fff;
 }
 
-h1 {
-    color: #333;
+.title-box h1 {
+    color: #ffffff;
+    font-size: 36px;
+    margin: 0;
 }
 
-textarea, input[type="file"] {
-    margin-top: 10px;
+/* Form Container Styling */
+.form-container {
+    width: 40%;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+label, select, textarea, input[type="file"] {
     display: block;
+    margin: 10px auto;
+    width: 90%;
+    font-size: 16px;
+    color: white;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 8px;
+}
+
+textarea {
+    resize: none;
+    height: 100px;
 }
 
 button {
-    margin-top: 15px;
-    padding: 10px 20px;
+    margin-top: 20px;
+    padding: 10px 30px;
     font-size: 16px;
+    background: #ff4c4c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+
+    /* Center the button */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-#result {
-    margin-top: 20px;
+button:hover {
+    background-color: #e63e3e;
+}
+
+/* Result Box Styling */
+#result-box {
+    width: 40%;
+    padding: 20px;
+    background: rgba(247, 244, 244, 0.6);
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    right: 3%;
+    transform: translateY(-50%);
+    text-align: center;
+    font-size: 20px;
     font-weight: bold;
+    display: none; /* Initially hidden */
+}
+
+#result-box.show {
+    display: block; /* Show when a result is available */
 }

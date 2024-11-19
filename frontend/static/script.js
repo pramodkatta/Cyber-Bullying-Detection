@@ -1,4 +1,4 @@
-// Handle input type selection and display corresponding input section
+// Event listener to handle input type selection and display the appropriate input section
 document.getElementById("inputType").addEventListener("change", function () {
     // Hide all input sections
     document.querySelectorAll(".inputSection").forEach(div => div.style.display = "none");
@@ -7,7 +7,7 @@ document.getElementById("inputType").addEventListener("change", function () {
     document.getElementById(this.value + "Input").style.display = "block";
 });
 
-// Function to detect cyberbullying based on input type
+// Function to detect cyberbullying
 async function detectCyberbullying() {
     const inputType = document.getElementById("inputType").value; // Get the selected input type
     let response;
@@ -19,7 +19,7 @@ async function detectCyberbullying() {
 
             // Validate that the text is not empty
             if (!text.trim()) {
-                document.getElementById("result").innerText = "Please enter some text.";
+                displayResult("Please enter some text.", "error");
                 return;
             }
 
@@ -35,7 +35,7 @@ async function detectCyberbullying() {
 
             // Validate that a file is selected
             if (fileInput.files.length === 0) {
-                document.getElementById("result").innerText = "Please upload a file.";
+                displayResult("Please upload a file.", "error");
                 return;
             }
 
@@ -58,10 +58,29 @@ async function detectCyberbullying() {
         const result = await response.json();
 
         // Display the prediction result
-        document.getElementById("result").innerText = `Result: ${result.prediction}`;
+        displayResult(`Result: ${result.prediction}`, "success");
     } catch (error) {
         // Handle errors gracefully
         console.error("Error:", error);
-        document.getElementById("result").innerText = `Error: ${error.message}`;
+        displayResult(`Error: ${error.message}`, "error");
     }
+}
+
+// Function to display results
+function displayResult(message, type) {
+    const resultBox = document.getElementById("result-box");
+    const result = document.getElementById("result");
+
+    // Update the result text
+    result.innerText = message;
+
+    // Apply styling based on result type (success or error)
+    if (type === "success") {
+        resultBox.style.color = "green";
+    } else if (type === "error") {
+        resultBox.style.color = "red";
+    }
+
+    // Show the result box
+    resultBox.classList.add("show");
 }
